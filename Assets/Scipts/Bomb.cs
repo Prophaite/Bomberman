@@ -3,9 +3,10 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class Bomb : MonoBehaviour
+public class Bomb : ObjectOnTilemap
 {
     public SpriteRenderer sr;
+    public Player player;
     [SerializeField]
     private Color normalTimeColor;
     [SerializeField] 
@@ -51,5 +52,8 @@ public class Bomb : MonoBehaviour
 
     public void Explose(){
         Destroy(this.gameObject);
+        if(player != null){
+            player.actualNumberBomb--;
+        }
     }
 }

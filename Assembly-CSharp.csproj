@@ -54,9 +54,13 @@
   </ItemGroup>
   <ItemGroup>
      <Compile Include="Assets\Scipts\Bomb.cs" />
+     <Compile Include="Assets\Scipts\DestructibleMap.cs" />
      <Compile Include="Assets\Scipts\MovingEntity.cs" />
      <Compile Include="Assets\Scipts\MovingPlayer.cs" />
+     <Compile Include="Assets\Scipts\ObjectOnTilemap.cs" />
      <Compile Include="Assets\Scipts\Player.cs" />
+     <Compile Include="Assets\Scipts\PlayerPlantBomb.cs" />
+     <Compile Include="Assets\Scipts\RandomBombGenerator.cs" />
  <Reference Include="Unity.TextMeshPro.Editor">
  <HintPath>C:/Users/Lucas/Desktop/Bomberman/Library/ScriptAssemblies/Unity.TextMeshPro.Editor.dll</HintPath>
  </Reference>

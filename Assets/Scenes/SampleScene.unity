@@ -1788,11 +1788,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4000010470550876, guid: 7ac6bdc2e4b5e47468b8b460ca863a5f, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -4.5
+      value: 5.51
       objectReference: {fileID: 0}
     - target: {fileID: 4000010470550876, guid: 7ac6bdc2e4b5e47468b8b460ca863a5f, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -4.8
+      value: -5.56
       objectReference: {fileID: 0}
     - target: {fileID: 4000010470550876, guid: 7ac6bdc2e4b5e47468b8b460ca863a5f, type: 3}
       propertyPath: m_LocalPosition.z
@@ -1925,13 +1925,14 @@ GameObject:
   - component: {fileID: 845314719}
   - component: {fileID: 845314721}
   - component: {fileID: 845314720}
+  - component: {fileID: 845314722}
   m_Layer: 9
   m_Name: DestructibleTilemap
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &845314719
 Transform:
   m_ObjectHideFlags: 0
@@ -1999,72 +2000,36 @@ Tilemap:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 845314718}
   m_Enabled: 1
-  m_Tiles:
-  - first: {x: -2, y: -2, z: 0}
-    second:
-      m_TileIndex: 0
-      m_TileSpriteIndex: 0
-      m_TileMatrixIndex: 0
-      m_TileColorIndex: 0
-      m_ObjectToInstantiate: {fileID: 0}
-      m_TileFlags: 1
-      m_ColliderType: 1
-  - first: {x: -1, y: -2, z: 0}
-    second:
-      m_TileIndex: 0
-      m_TileSpriteIndex: 0
-      m_TileMatrixIndex: 0
-      m_TileColorIndex: 0
-      m_ObjectToInstantiate: {fileID: 0}
-      m_TileFlags: 1
-      m_ColliderType: 1
-  - first: {x: 0, y: -2, z: 0}
-    second:
-      m_TileIndex: 0
-      m_TileSpriteIndex: 0
-      m_TileMatrixIndex: 0
-      m_TileColorIndex: 0
-      m_ObjectToInstantiate: {fileID: 0}
-      m_TileFlags: 1
-      m_ColliderType: 1
-  - first: {x: 1, y: -2, z: 0}
-    second:
-      m_TileIndex: 0
-      m_TileSpriteIndex: 0
-      m_TileMatrixIndex: 0
-      m_TileColorIndex: 0
-      m_ObjectToInstantiate: {fileID: 0}
-      m_TileFlags: 1
-      m_ColliderType: 1
+  m_Tiles: {}
   m_AnimatedTiles: {}
   m_TileAssetArray:
-  - m_RefCount: 4
-    m_Data: {fileID: 11400000, guid: 767ac3218431e78468fd88da48e3d580, type: 2}
+  - m_RefCount: 0
+    m_Data: {fileID: 0}
   m_TileSpriteArray:
-  - m_RefCount: 4
-    m_Data: {fileID: 21300000, guid: 318fab98dd4411744a4baad2e233491a, type: 3}
+  - m_RefCount: 0
+    m_Data: {fileID: 0}
   m_TileMatrixArray:
-  - m_RefCount: 4
+  - m_RefCount: 0
     m_Data:
-      e00: 1
-      e01: 0
-      e02: 0
-      e03: 0
+      e00: 74913.875
+      e01: 8.785357e-39
+      e02: NaN
+      e03: 150.83704
       e10: 0
-      e11: 1
-      e12: 0
-      e13: 0
-      e20: 0
-      e21: 0
-      e22: 1
-      e23: 0
+      e11: 0
+      e12: NaN
+      e13: 1e-45
+      e20: 8.785435e-39
+      e21: 2.6027434
+      e22: 0
+      e23: 5.908082
       e30: 0
       e31: 0
       e32: 0
-      e33: 1
+      e33: 1e-45
   m_TileColorArray:
-  - m_RefCount: 4
-    m_Data: {r: 1, g: 1, b: 1, a: 1}
+  - m_RefCount: 0
+    m_Data: {r: 1e-45, g: 1e-45, b: 1e-45, a: 1e-45}
   m_AnimationFrameRate: 1
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_Origin: {x: -18, y: -9, z: 0}
@@ -2088,6 +2053,40 @@ Tilemap:
     e31: 0
     e32: 0
     e33: 1
+--- !u!114 &845314722
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 845314718}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2dea1bb67b8f11a489c7f924d568042b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!1 &920947000 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1000013301305156, guid: 7ac6bdc2e4b5e47468b8b460ca863a5f,
+    type: 3}
+  m_PrefabInstance: {fileID: 95149886}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &920947001
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 920947000}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 95cec37f0f4ff504d96bf54d64beec1e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bomb: {fileID: 7693042616193419044, guid: 7fc4070e987ff484a966b2c506d3bff4, type: 3}
+  maxNumberBomb: 1
+  actualNumberBomb: 0
+  destructibleMap: {fileID: 845314722}
 --- !u!1 &1125141336
 GameObject:
   m_ObjectHideFlags: 0
@@ -6818,6 +6817,50 @@ Tilemap:
     e31: 0
     e32: 0
     e33: 1
+--- !u!1 &1293933729
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1293933731}
+  - component: {fileID: 1293933730}
+  m_Layer: 0
+  m_Name: BombGenerator
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1293933730
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1293933729}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cdef55dc347e8cb4f8d297e9a0cfb968, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bomb: {fileID: 7693042616193419044, guid: 7fc4070e987ff484a966b2c506d3bff4, type: 3}
+--- !u!4 &1293933731
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1293933729}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 2.0362568, y: -1.2157632, z: -0.123046875}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 4
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1546658973
 GameObject:
   m_ObjectHideFlags: 0
@@ -7005,6 +7048,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 95cec37f0f4ff504d96bf54d64beec1e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSpeed: 0
   bomb: {fileID: 7693042616193419044, guid: 7fc4070e987ff484a966b2c506d3bff4, type: 3}
-  numberBomb: 1
+  maxNumberBomb: 1
+  actualNumberBomb: 0
+  destructibleMap: {fileID: 0}

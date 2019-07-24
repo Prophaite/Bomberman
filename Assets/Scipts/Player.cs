@@ -2,62 +2,39 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Player : MovingEntity
+public class Player : ObjectOnTilemap
 {
     private int fireRadius;
-    private float horizontal;
-    private float vertical;
 
     [SerializeField]
     public Bomb bomb;
-    public int numberBomb = 1;
+    public int maxNumberBomb = 1;
+    public int actualNumberBomb = 0;
+    public DestructibleMap destructibleMap;
 
-    protected override void Start(){
-        base.Start();
-        moveSpeed = 5;
+    void Start(){
+
     }
     
 
     // Update is called once per frame
-    void FixedUpdate()
+    void Update()
     {
-        if(Input.GetAxisRaw("Horizontal") != 0f || Input.GetAxisRaw("Vertical") != 0f){
-            horizontal = Input.GetAxisRaw("Horizontal");
-            vertical = Input.GetAxisRaw("Vertical");
-
-            Vector2 test = new Vector2(horizontal, vertical);
-            AttemptMove(test);
-        }
-
         if(Input.GetKey("space")){
-            CreateBomb();
+           CreateBomb();
         }
-    
     }
 
     private void CreateBomb(){
-        Instantiate(bomb,GetPositionPlayer(),Quaternion.identity);
+        if(actualNumberBomb >= maxNumberBomb){return;}
+        Vector3 bombPlacement = GetPositionOnTilemap();
+        if(destructibleMap.map[(int) bombPlacement.x,(int) bombPlacement.y] != 0){
+            return;
+        }
+        Bomb bombObject = Instantiate(bomb,GetPosition(),Quaternion.identity);
+        bombObject.player = this;
+        actualNumberBomb++;
     }
 
-    private Vector3 GetPositionPlayer(){
-        Vector3 pos = rb2D.position;
-        int x;
-        int y;
-        if(pos.x < 0){
-            x = (int) pos.x - 1;
-        }
-        else{
-            x = (int) pos.x;
-        }
-
-        if(pos.y < 0){
-            y = (int) pos.y - 1;
-        }
-        else{
-            y = (int) pos.y;
-        }
-        pos.x = x + 0.5f;
-        pos.y = y + 0.5f;
-        return pos;
-    }
+    
 }
