@@ -51,7 +51,9 @@ public class Bomb : ObjectOnTilemap
     }
 
     public void Explose(){
+        Vector3 bombPlacement = GetPositionOnTilemap();
         Destroy(this.gameObject);
+        DestructibleMap.RemoveObjectFromMap((int) bombPlacement.x, (int) bombPlacement.y);
         if(player != null){
             player.actualNumberBomb--;
         }

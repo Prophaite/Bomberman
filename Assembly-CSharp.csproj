@@ -55,7 +55,6 @@
   <ItemGroup>
      <Compile Include="Assets\Scipts\Bomb.cs" />
      <Compile Include="Assets\Scipts\DestructibleMap.cs" />
-     <Compile Include="Assets\Scipts\MovingEntity.cs" />
      <Compile Include="Assets\Scipts\MovingPlayer.cs" />
      <Compile Include="Assets\Scipts\ObjectOnTilemap.cs" />
      <Compile Include="Assets\Scipts\Player.cs" />
