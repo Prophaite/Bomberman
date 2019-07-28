@@ -27,11 +27,11 @@ public class Player : ObjectOnTilemap
 
     private void CreateBomb(){
         if(actualNumberBomb >= maxNumberBomb){return;}
-        Vector3 bombPlacement = GetPositionOnTilemap();
+        Vector3Int bombPlacement = GetPositionOnTilemap();
         bool testCreationBomb = DestructibleMap.FreePlaceOnMap((int) bombPlacement.x,(int) bombPlacement.y);
         if(testCreationBomb){
             Bomb bombObject = Instantiate(bomb,GetPosition(),Quaternion.identity);
-            DestructibleMap.AddBombOnMap((int) bombPlacement.x,(int) bombPlacement.y);
+            DestructibleMap.AddBombOnMap(bombPlacement.x, bombPlacement.y);
             bombObject.player = this;
             actualNumberBomb++;
         }

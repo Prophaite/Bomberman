@@ -53,6 +53,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+     <Compile Include="Assets\BombExplosion.cs" />
      <Compile Include="Assets\Scipts\Bomb.cs" />
      <Compile Include="Assets\Scipts\DestructibleMap.cs" />
      <Compile Include="Assets\Scipts\MovingPlayer.cs" />

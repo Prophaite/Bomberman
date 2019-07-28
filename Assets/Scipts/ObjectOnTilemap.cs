@@ -38,10 +38,10 @@ public class ObjectOnTilemap : MonoBehaviour
         return pos;
     }
 
-    public Vector3 GetPositionOnTilemap(){
-        Vector3 pos = GetPosition();
-        pos.x = pos.x + 4.5f;
-        pos.y = 4.5f - pos.y;
+    public Vector3Int GetPositionOnTilemap(){
+        Vector3Int pos = Vector3Int.zero;
+        pos.x = (int) (GetPosition().x + 4.5f);
+        pos.y = (int) (4.5f - GetPosition().y);
         return pos;
     }
 }

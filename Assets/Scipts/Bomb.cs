@@ -7,53 +7,30 @@ public class Bomb : ObjectOnTilemap
 {
     public SpriteRenderer sr;
     public Player player;
-    [SerializeField]
-    private Color normalTimeColor;
-    [SerializeField] 
-    private Color redTimeColor;
-    private bool isRedTime;
-    private float redTimer = 0.5f;
     private float timer;
-    private int redTimeCountMax = 2;
-    private int redTimeCount = 0;
+    private float bombTimer = 1.5f;
 
     // Start is called before the first frame update
     void Start()
     {
         timer = Time.time;
-        isRedTime = false;
         sr = GetComponent<SpriteRenderer>();
     }
 
     // Update is called once per frame
     void Update()
     {
-
-        if(Time.time > (timer + redTimer)){
-            timer = Time.time;
-            ChangeRedTime();
-            if(isRedTime){
-                sr.color = redTimeColor;
-            }
-            else{
-                sr.color = normalTimeColor;
-                redTimeCount++;
-            }
+        if(Time.time >= timer + bombTimer){
+            Explode();
         }
 
-        if(redTimeCount == redTimeCountMax){
-            Explose();
-        }
+
     }
 
-    public void ChangeRedTime(){
-        isRedTime = !isRedTime;
-    }
-
-    public void Explose(){
-        Vector3 bombPlacement = GetPositionOnTilemap();
+    public void Explode(){
+        Vector3Int bombPlacement = GetPositionOnTilemap();
         Destroy(this.gameObject);
-        DestructibleMap.RemoveObjectFromMap((int) bombPlacement.x, (int) bombPlacement.y);
+        DestructibleMap.RemoveObjectFromMap(bombPlacement.x, bombPlacement.y);
         if(player != null){
             player.actualNumberBomb--;
         }
