@@ -9,7 +9,7 @@ public class Player : ObjectOnTilemap
     [SerializeField]
     public Bomb bomb;
     public int maxNumberBomb = 1;
-    public int actualNumberBomb = 0;
+    public int actualBombNumber = 0;
     //public DestructibleMap destructibleMap;
 
     void Start(){
@@ -26,14 +26,14 @@ public class Player : ObjectOnTilemap
     }
 
     private void CreateBomb(){
-        if(actualNumberBomb >= maxNumberBomb){return;}
+        if(actualBombNumber >= maxNumberBomb){return;}
         Vector3Int bombPlacement = GetPositionOnTilemap();
         bool testCreationBomb = DestructibleMap.FreePlaceOnMap((int) bombPlacement.x,(int) bombPlacement.y);
         if(testCreationBomb){
             Bomb bombObject = Instantiate(bomb,GetPosition(),Quaternion.identity);
             DestructibleMap.AddBombOnMap(bombPlacement.x, bombPlacement.y);
             bombObject.player = this;
-            actualNumberBomb++;
+            actualBombNumber++;
         }
     }
 

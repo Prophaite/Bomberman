@@ -32,7 +32,7 @@ public class Bomb : ObjectOnTilemap
         Destroy(this.gameObject);
         DestructibleMap.RemoveObjectFromMap(bombPlacement.x, bombPlacement.y);
         if(player != null){
-            player.actualNumberBomb--;
+            player.actualBombNumber--;
         }
     }
 }
