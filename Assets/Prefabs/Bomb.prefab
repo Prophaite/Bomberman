@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: 8653944420586775917}
   m_Layer: 0
   m_Name: Bomb
-  m_TagString: Untagged
+  m_TagString: Bomb
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -144,8 +144,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   sr: {fileID: 0}
   player: {fileID: 0}
-  normalTimeColor: {r: 1, g: 1, b: 1, a: 1}
-  redTimeColor: {r: 1, g: 0, b: 0, a: 1}
+  bombExplosion: {fileID: 3428919903404196951, guid: d6c7c3b8bfd8a1c40bbde2927ff55401,
+    type: 3}
 --- !u!95 &8653944420586775917
 Animator:
   serializedVersion: 3

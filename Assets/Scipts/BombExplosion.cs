@@ -4,15 +4,35 @@ using UnityEngine;
 
 public class BombExplosion : MonoBehaviour
 {
+    private Animator anim;
+    private AnimationEvent evt;
+    private float timer;
+    private float animDuration = 0.583f;
+    
+    public Vector3Int bombPosition;
+    public int range;
+
     // Start is called before the first frame update
     void Start()
     {
-        
+        timer = Time.time;
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+        if(Time.time >= timer + animDuration){
+            Destroy(this.gameObject);
+        }
+    }
+
+    void OnCollisionEnter2D(Collision2D collision){
+        if(collision.gameObject.tag == "Player"){
+            collision.gameObject.SendMessage("Kill");
+        }
+
+        if(collision.gameObject.tag == "Bomb"){
+            collision.gameObject.SendMessage("Explode");
+        }
     }
 }

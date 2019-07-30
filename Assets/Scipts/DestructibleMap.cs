@@ -5,7 +5,7 @@ using UnityEngine;
 public static class DestructibleMap 
 {
     public enum destructibleObject {Wall = -1, Nothing = 0, DestrucibleWall = 1, Loot = 2, Bomb = 3};
-    public static int[,] map = new int[11,11]{{0,0,0,0,0,0,0,0,0,0,0},
+    private static int[,] map = new int[11,11]{{0,0,0,0,0,0,0,0,0,0,0},
         {0,-1,0,-1,0,-1,0,-1,0,-1,0},
         {0,0,0,0,0,0,0,0,0,0,0},
         {0,-1,0,-1,0,-1,0,-1,0,-1,0},
@@ -46,6 +46,10 @@ public static class DestructibleMap
     public static void RemoveObjectFromMap(int x, int y){
         if(x<0 || x>10 || y<0 || y>10 || map[x,y] == -1){return;}
         map[x,y] = 0;
+    }
+
+    public static int Map(int x, int y){
+        return map[x,y];
     }
 
 }

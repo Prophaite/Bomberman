@@ -10,7 +10,7 @@ public class Player : ObjectOnTilemap
     public Bomb bomb;
     public int maxNumberBomb = 1;
     public int actualBombNumber = 0;
-    //public DestructibleMap destructibleMap;
+    public int rangeOfFire = 3;
 
     void Start(){
 
@@ -37,5 +37,7 @@ public class Player : ObjectOnTilemap
         }
     }
 
-    
+    public void Kill(){
+        Destroy(this.gameObject);
+    }
 }
