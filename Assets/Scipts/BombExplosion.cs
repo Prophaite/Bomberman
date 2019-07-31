@@ -26,13 +26,13 @@ public class BombExplosion : MonoBehaviour
         }
     }
 
-    void OnCollisionEnter2D(Collision2D collision){
-        if(collision.gameObject.tag == "Player"){
-            collision.gameObject.SendMessage("Kill");
+    void OnTriggerEnter2D(Collider2D other){
+        if(other.gameObject.tag == "Player"){
+            other.gameObject.SendMessage("Kill");
         }
 
-        if(collision.gameObject.tag == "Bomb"){
-            collision.gameObject.SendMessage("Explode");
+        if(other.gameObject.tag == "Bomb"){
+            other.gameObject.SendMessage("Explode");
         }
     }
 }

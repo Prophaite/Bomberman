@@ -6,10 +6,11 @@ using UnityEngine.UI;
 
 public class Bomb : ObjectOnTilemap
 {
-    public SpriteRenderer sr;
+    private SpriteRenderer sr;
+    private BoxCollider2D bc;
     public Player player;
     private float timer;
-    private float bombTimer = 1.5f;
+    private float bombTimer = 3.0f;
     [SerializeField]
     private BombExplosion bombExplosion;
     private Vector3Int bombPlacement;
@@ -20,6 +21,7 @@ public class Bomb : ObjectOnTilemap
     {
         timer = Time.time;
         sr = GetComponent<SpriteRenderer>();
+        bc = GetComponent<BoxCollider2D>();
         bombPlacement = GetPositionOnTilemap();
         if(player != null){
             rangeOfFire = player.rangeOfFire;
@@ -28,12 +30,10 @@ public class Bomb : ObjectOnTilemap
 
     // Update is called once per frame
     void Update()
-    {
+    { 
         if(Time.time >= timer + bombTimer){
             Explode();
         }
-
-
     }
 
     public void Explode(){
@@ -132,9 +132,9 @@ public class Bomb : ObjectOnTilemap
     }
 
     private int ExplosionCheckDown(){
-        if(Math.Min(player.rangeOfFire, 10 - bombPlacement.y) == 0){return 0;}
+        if(Math.Min(rangeOfFire, 10 - bombPlacement.y) == 0){return 0;}
         int i = 1;
-        while(i < Math.Min(player.rangeOfFire, 10 - bombPlacement.y)){
+        while(i < Math.Min(rangeOfFire, 10 - bombPlacement.y)){
             if(DestructibleMap.Map(bombPlacement.x, bombPlacement.y + i) == -1){
                 return i - 1;
             }
@@ -155,5 +155,13 @@ public class Bomb : ObjectOnTilemap
         for(int i=1; i <= ExplosionCheckDown(); i++){
             Instantiate(bombExplosion, new Vector3(realPosition.x, realPosition.y - i, 0), Quaternion.identity);
         }
+    }
+
+    void OnTriggerExit2D(Collider2D other){
+        if(player != null){
+            if(other.gameObject.tag == "Player"){
+               bc.isTrigger = false; 
+            }
+        }        
     }
 }
