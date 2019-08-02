@@ -9,6 +9,7 @@ public class Bomb : ObjectOnTilemap
     private SpriteRenderer sr;
     private BoxCollider2D bc;
     public Player player;
+    private BoxCollider2D colliderPlayer;
     private float timer;
     private float bombTimer = 3.0f;
     [SerializeField]
@@ -19,6 +20,7 @@ public class Bomb : ObjectOnTilemap
     // Start is called before the first frame update
     void Start()
     {
+        
         timer = Time.time;
         sr = GetComponent<SpriteRenderer>();
         bc = GetComponent<BoxCollider2D>();
@@ -26,6 +28,15 @@ public class Bomb : ObjectOnTilemap
         if(player != null){
             rangeOfFire = player.rangeOfFire;
         }
+        //Debug.Log(GameObject.Find("Player").gameObject != null);
+        if(GameObject.Find("Player") != null){
+            colliderPlayer = GameObject.Find("Player").GetComponent<BoxCollider2D>();
+            if(!bc.IsTouching(colliderPlayer)){
+                bc.isTrigger = false;
+            }
+        }
+        
+        
     }
 
     // Update is called once per frame
@@ -156,6 +167,8 @@ public class Bomb : ObjectOnTilemap
             Instantiate(bombExplosion, new Vector3(realPosition.x, realPosition.y - i, 0), Quaternion.identity);
         }
     }
+
+    
 
     void OnTriggerExit2D(Collider2D other){
         if(player != null){
